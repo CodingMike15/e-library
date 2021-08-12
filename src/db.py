@@ -8,7 +8,7 @@ def get_db():
 
 def create_tables():
     tables = [
-        """CREATE TABLE IF NOT EXISTS games(
+        """CREATE TABLE IF NOT EXISTS books(
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
                 name TEXT NOT NULL,
                 author TEXT NOT NULL
