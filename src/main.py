@@ -30,10 +30,15 @@ def insert_book():
         result = book_controller.insert_book(name, author)
         return render_template('insert_book.html')
 
-@app.route('/book/<id>', methods=['DELETE'])
-def delete_book(id):
-    result = book_controller.delete_book(id)
-    return jsonify(result)
+@app.route('/deletebook', methods=['GET', 'POST'])
+def delete_book():
+    if request.method == 'GET':
+        return render_template('delete_book.html')
+
+    if request.method == 'POST':
+        book = request.form['book']
+        result = book_controller.delete_book(book)
+        return render_template('delete_book.html')
 
 @app.route('/book', methods=['PUT'])
 def update_book():
