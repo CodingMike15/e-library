@@ -1,22 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="styles.css" type="text/css" rel="stylesheet"/>
-    <title>E-LIBRARY</title>
-</head>
-<body>
-    <nav>
-        <ul>
-            <li><a href="#">Get Books</a></li>
-            <li><a href="#">Get Book By ID</a></li>
-            <li><a href="#">Insert Book</a></li>
-            <li><a href="#">Delete Book</a></li>
-            <li><a href="#">Update Booka</a></li>
-        </ul>
-    </nav>
-    {% block contenido %}{% endblock %}
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{{ url_for('static',filename='styles/base.css') }}">
+        <title>E-LIBRARY</title>
+    </head>
+    <body>
+        <nav>
+            <ul>
+                <li><a href="#">Get Books</a></li>
+                <li><a href="#">Get Book By ID</a></li>
+                <li><a href="#">Insert Book</a></li>
+                <li><a href="#">Delete Book</a></li>
+                <li><a href="#">Update Booka</a></li>
+            </ul>
+        </nav>
+        {% block content %}{% endblock %}
+    </body>
 </html>
