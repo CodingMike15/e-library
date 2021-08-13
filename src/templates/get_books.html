@@ -1,5 +1,16 @@
 {% extends "base.html" %}
 
-{% block contenido %}
+{% block content %}
+
+{% if books %}
+
+    <h1>All Books</h1>
+    <ul>
+        {% for book in books %}
+            <p><b>ID:</b> {{book[0]}}   |   <b>Name:</b> {{book[1]}}   |   <b>Author:</b> {{book[2]}}</p>
+        {% endfor %}
+    </ul>
+
+{% endif %}
 
 {% endblock %}

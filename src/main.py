@@ -7,7 +7,7 @@ app = Flask(__name__)
 @app.route('/books', methods=["GET"])
 def get_books():
     books = book_controller.get_books()
-    return render_template('get_books.html')
+    return render_template('get_books.html', books=books)
 
 @app.route('/book/<id>', methods=['GET'])
 def get_book_by_id(id):
