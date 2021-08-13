@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, render_template
 import book_controller
 from db import create_tables
 
@@ -7,7 +7,7 @@ app = Flask(__name__)
 @app.route('/books', methods=["GET"])
 def get_books():
     books = book_controller.get_books()
-    return jsonify(books)
+    return render_template('get_books.html')
 
 @app.route('/book/<id>', methods=['GET'])
 def get_book_by_id(id):
