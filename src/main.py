@@ -9,10 +9,15 @@ def get_books():
     books = book_controller.get_books()
     return render_template('get_books.html', books=books)
 
-@app.route('/book/<id>', methods=['GET'])
-def get_book_by_id(id):
-    book = book_controller.get_by_id(id)
-    return jsonify(book)
+@app.route('/book/', methods=['GET', 'POST'])
+def get_book_by_id():
+    if request.method == 'GET':
+        return render_template('find_book_by_id.html')
+
+    if request.method == 'POST':
+        book_id = request.form['book']
+        book = book_controller.get_by_id(book_id)
+        return render_template('find_book_by_id.html', book=book)
 
 @app.route('/book', methods=['POST'])
 def insert_book():

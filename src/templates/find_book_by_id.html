@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <br>
+    <form method="POST">
+        <input type="text", name="book">
+        <input type="submit" value="Find">
+    </form>
+
+    {% if book %}
+        <p>name: {{book[1]}}</p>
+        <p>author: {{book[2]}}</p>
+    {% endif %}
+
+{% endblock %}
