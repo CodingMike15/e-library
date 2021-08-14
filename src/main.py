@@ -40,14 +40,18 @@ def delete_book():
         result = book_controller.delete_book(book)
         return render_template('delete_book.html')
 
-@app.route('/book', methods=['PUT'])
+@app.route('/updatebook', methods=['GET', 'POST'])
 def update_book():
-    book_details = request.get_json()
-    id = book_details['id']
-    name = book_details['name']
-    author = book_details['author']
-    result = book_controller.update_book(id, name, author)
-    return jsonify(result)
+    if request.method == 'GET':
+        return render_template('update_book.html')
+
+    if request.method == 'POST':
+        id = request.form['id']
+        name = request.form['name']
+        author = request.form['author']
+        result = book_controller.update_book(id, name, author)
+        return render_template('update_book.html')
+        
 
 if __name__ == '__main__':
     create_tables()
