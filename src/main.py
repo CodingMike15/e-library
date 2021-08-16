@@ -1,6 +1,6 @@
 from flask import Flask, jsonify, request, render_template
 import book_controller
-from db import create_tables
+from db import create_tables, get_db
 
 app = Flask(__name__)
 
@@ -18,6 +18,16 @@ def get_book_by_id():
         book_id = request.form['book']
         book = book_controller.get_by_id(book_id)
         return render_template('find_book_by_id.html', book=book)
+
+@app.route('/findbookbyname', methods=['GET', 'POST'])
+def get_book_by_name():
+    if request.method == 'GET':
+        return render_template('find_book_by_name.html')
+
+    if request.method == 'POST':
+        book_name = request.form['name']
+        book = book_controller.get_by_name(book_name)
+        return render_template('find_book_by_name.html', book=book)
 
 @app.route('/insertbook', methods=['GET', 'POST'])
 def insert_book():

@@ -37,3 +37,10 @@ def get_books():
     query = "SELECT id, name, author FROM books"
     cursor.execute(query)
     return cursor.fetchall()
+
+def get_by_name(name):
+    db = get_db()
+    cursor = db.cursor()
+    statement = 'SELECT id, name, author FROM books WHERE name = ?'
+    cursor.execute(statement, [name])
+    return cursor.fetchone()
