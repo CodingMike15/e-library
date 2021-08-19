@@ -49,7 +49,8 @@ def delete_book():
     if request.method == 'POST':
         book = request.form['book']
         result = book_controller.delete_book(book)
-        return render_template('delete_book.html')
+        message = 'Book Deleted'
+        return render_template('delete_book.html', message=message)
 
 @app.route('/updatebook', methods=['GET', 'POST'])
 def update_book():
