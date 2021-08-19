@@ -62,7 +62,8 @@ def update_book():
         name = request.form['name']
         author = request.form['author']
         result = book_controller.update_book(id, name, author)
-        return render_template('update_book.html')
+        message = 'Book Updated'
+        return render_template('update_book.html', message=message)
         
 
 if __name__ == '__main__':
