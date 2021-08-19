@@ -3,14 +3,19 @@
 {% block content %}
 
     <br>
-    <form method="POST">
-        <input type="text", name="name">
+    <form method="POST" class="form">
+        <h2>Find Book</h2>
+        <br>
+        <input type="text" name="name" value="Name">
+        <br>
         <input type="submit" value="Find">
     </form>
 
     {% if book %}
-        <p>name: {{book[1]}}</p>
-        <p>author: {{book[2]}}</p>
+        <div class="book_container">
+            <p><b>Name:</b> {{book[1]}}</p>
+            <p><b>Author:</b> {{book[2]}}</p>
+        </div>
     {% endif %}
 
 {% endblock %}
