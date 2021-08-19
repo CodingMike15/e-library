@@ -1,16 +1,18 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <br>
-    <form method="POST">
-        <label>name: </label>
-        <input type="text" name="name">
+    <form method="POST" class="form">
+        <h2>Insert Book</h2>
         <br>
+        <input type="text" name="name" value="Name">
         <br>
-        <label>author: </label>
-        <input type="text" name="author">
-        <br>
+        <input type="text" name="author" value="Author">
         <br>
         <input type="submit" value="Insert">
     </form>
+    {% if message %}
+        <div class="message">
+            <p>{{message}}</p>
+        </div>
+    {% endif %}
 {% endblock %}

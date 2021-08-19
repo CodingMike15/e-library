@@ -38,7 +38,8 @@ def insert_book():
         name = request.form['name']
         author = request.form['author']
         result = book_controller.insert_book(name, author)
-        return render_template('insert_book.html')
+        message = 'Book Inserted'
+        return render_template('insert_book.html', message=message)
 
 @app.route('/deletebook', methods=['GET', 'POST'])
 def delete_book():
