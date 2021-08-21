@@ -29,6 +29,17 @@ def get_book_by_name():
         book = book_controller.get_by_name(book_name)
         return render_template('find_book_by_name.html', book=book)
 
+@app.route('/findbookbyauthor', methods=['GET', 'POST'])
+def get_book_by_author():
+    if request.method == 'GET':
+        return render_template('find_book_by_author.html')
+
+
+    if request.method == 'POST':
+        book_author = request.form['author']
+        books = book_controller.get_by_author(book_author)
+        return render_template('find_book_by_author.html', books=books)
+
 @app.route('/insertbook', methods=['GET', 'POST'])
 def insert_book():
     if request.method == 'GET':
