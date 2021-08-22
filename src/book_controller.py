@@ -41,13 +41,15 @@ def get_books():
 def get_by_name(name):
     db = get_db()
     cursor = db.cursor()
-    statement = 'SELECT ID, Name, Author FROM books WHERE Name = ?'
+    statement = 'SELECT ID, Name, Author FROM books WHERE Name LIKE ?'
+    name = '%' + name + '%'
     cursor.execute(statement, [name])
     return cursor.fetchall()
 
 def get_by_author(author):
     db = get_db()
     cursor = db.cursor()
-    statement = 'SELECT ID, Name, Author FROM books WHERE Author = ?'
+    statement = 'SELECT ID, Name, Author FROM books WHERE Author LIKE ?'
+    author = '%' + author + '%'
     cursor.execute(statement, [author])
     return cursor.fetchall()
