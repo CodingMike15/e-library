@@ -26,8 +26,8 @@ def get_book_by_name():
 
     if request.method == 'POST':
         book_name = request.form['name']
-        book = book_controller.get_by_name(book_name)
-        return render_template('find_book_by_name.html', book=book)
+        books = book_controller.get_by_name(book_name)
+        return render_template('find_book_by_name.html', books=books)
 
 @app.route('/findbookbyauthor', methods=['GET', 'POST'])
 def get_book_by_author():

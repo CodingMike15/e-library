@@ -1,8 +1,6 @@
 {% extends "base.html" %}
 
 {% block content %}
-
-    <br>
     <form method="POST" class="form">
         <h2>Find Book</h2>
         <br>
@@ -11,11 +9,15 @@
         <input type="submit" value="Find">
     </form>
 
-    {% if book %}
-        <div class="book_container">
-            <p><b>Name:</b> {{book[1]}}</p>
-            <p><b>Author:</b> {{book[2]}}</p>
-        </div>
+    {% if books %}
+        <ul>
+            {% for book in books %}
+                <div class="book_container">
+                    <p><b>ID:</b> {{book[0]}}</p>
+                    <p><b>Name:</b> {{book[1]}}</p>
+                    <p><b>Author:</b> {{book[2]}}</p>
+                </div> 
+            {% endfor %}
+        </ul>
     {% endif %}
-
 {% endblock %}

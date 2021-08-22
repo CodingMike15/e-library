@@ -1,18 +1,21 @@
-import sqlite3
-
-DATABASE_NAME = "books.db"
+import mariadb
 
 def get_db():
-    conn = sqlite3.connect(DATABASE_NAME)
+    conn = mariadb.connect( 
+        user="user1", 
+        password="100630", 
+        host="localhost", 
+        database="elibrary"
+    )
     return conn
 
 def create_tables():
     tables = [
         """CREATE TABLE IF NOT EXISTS books(
-                id INTEGER PRIMARY KEY AUTOINCREMENT,
-                name TEXT NOT NULL,
-                author TEXT NOT NULL
-            )
+                ID int NOT NULL PRIMARY KEY AUTO_INCREMENT,
+                Name varchar(255) NOT NULL,
+                Author varchar(255) NOT NULL
+            );
             """
     ]
 
