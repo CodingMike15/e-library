@@ -1,9 +1,11 @@
+import secrets
 import mariadb
+from secrets import user, password
 
 def get_db():
     conn = mariadb.connect( 
-        user="user1", 
-        password="100630", 
+        user= user, 
+        password= password, 
         host="localhost", 
         database="elibrary"
     )
