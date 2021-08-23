@@ -19,6 +19,8 @@ To clone the repostitory you need follow this steps:
 
 ### Usage
 ---
+You need to have a user and database in MariaDB, and in db.py change in the get_db function the user variable with the your user, the password variable with the password of your user and change the database variable with your database name.
+
 1. Run the main.py file in the src directory
 2. It will create a sever in localhost:5000
 If you want to change the port change `app.run(port='<port>')`
