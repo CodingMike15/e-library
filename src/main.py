@@ -1,6 +1,7 @@
 from flask import Flask, jsonify, request, render_template
 import book_controller
 from db import create_tables, get_db
+import mariadb
 
 app = Flask(__name__)
 
@@ -59,8 +60,11 @@ def delete_book():
 
     if request.method == 'POST':
         book = request.form['book']
-        result = book_controller.delete_book(book)
-        message = 'Book Deleted'
+        try:
+            result = book_controller.delete_book(book)
+            message = 'Book Deleted'
+        except mariadb.OperationalError:
+            message = 'Error'
         return render_template('delete_book.html', message=message)
 
 @app.route('/updatebook', methods=['GET', 'POST'])
@@ -72,8 +76,11 @@ def update_book():
         id = request.form['id']
         name = request.form['name']
         author = request.form['author']
-        result = book_controller.update_book(id, name, author)
-        message = 'Book Updated'
+        try: 
+            result = book_controller.update_book(id, name, author)
+            message = 'Book Updated'
+        except mariadb.OperationalError:
+            message = 'Error'
         return render_template('update_book.html', message=message)
         
 
