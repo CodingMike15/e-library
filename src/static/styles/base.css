@@ -1,5 +1,5 @@
 body {
-    background-color: lightblue;
+    background-color: #96BBBB;
 }
 
 nav ul {
@@ -7,7 +7,7 @@ nav ul {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #333;
+    background-color: #414535;
 }
   
 nav li {
@@ -32,7 +32,7 @@ nav li a:hover {
     margin-bottom: 30px;
     padding: 20px 20px;
     width: 400px;
-    background-color: gray;
+    background-color: #618985;
 }
 
 .book_container p {
@@ -46,7 +46,7 @@ nav li a:hover {
     padding: 30px 20px;
     width: 20%;
     text-align: center;
-    background-color: rgb(165, 164, 164);
+    background-color: #618985;
 }
 
 .form h2 {
@@ -68,7 +68,7 @@ nav li a:hover {
     margin-bottom: 30px;
     padding: 20px 20px;
     width: 400px;
-    background-color: gray;
+    background-color: #618985;
 }
 
 .message p{
